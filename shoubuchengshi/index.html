@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>首部城市夜间灯光图集发布 - 图集内容、数据解读与获取指南</title>
+<meta name="description" content="首部城市夜间灯光图集发布，汇集多座城市的夜间灯光影像与可视化解读。本文介绍图集的发布背景、内容构成、灯光数据含义、查看方式与常见问题，帮助读者理解城市夜间灯光图集的价值与使用方法。">
+<meta name="keywords" content="首部城市夜间灯光图集发布,城市夜间灯光,夜间灯光图集,城市灯光影像,灯光数据解读">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+  :root{
+    --night-900:#070b18;
+    --night-800:#0d1428;
+    --night-700:#151f3c;
+    --night-600:#1f2c52;
+    --line:#27355e;
+    --amber:#ffc857;
+    --amber-soft:#ffe1a0;
+    --cyan:#5fd0e8;
+    --text:#eef2ff;
+    --text-dim:#a9b4d6;
+    --text-mute:#7c88ad;
+    --radius:14px;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(1200px 600px at 15% -10%, rgba(95,208,232,.14), transparent 60%),
+      radial-gradient(900px 500px at 90% 0%, rgba(255,200,87,.12), transparent 55%),
+      var(--night-900);
+    color:var(--text);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC",system-ui,-apple-system,"Segoe UI",sans-serif;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px;}
+  .skip{position:absolute;left:-9999px;}
+
+  /* ---------- 顶部导航 ---------- */
+  .topbar{
+    position:sticky;top:0;z-index:50;
+    background:rgba(7,11,24,.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar-inner{
+    max-width:var(--maxw);margin:0 auto;padding:12px 20px;
+    display:flex;align-items:center;gap:22px;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.5px;}
+  .brand-mark{
+    width:30px;height:30px;border-radius:9px;flex:0 0 auto;
+    background:linear-gradient(140deg,var(--amber),#ff8f4d 55%,var(--cyan));
+    box-shadow:0 0 18px rgba(255,200,87,.35);
+    position:relative;
+  }
+  .brand-mark::after{
+    content:"";position:absolute;inset:9px 6px;border-radius:50%;
+    background:rgba(7,11,24,.85);
+  }
+  .brand small{display:block;font-size:11px;font-weight:400;color:var(--text-mute);letter-spacing:2px;}
+  .nav{display:flex;gap:6px;margin-left:auto;flex-wrap:wrap;}
+  .nav a{
+    padding:7px 13px;border-radius:999px;font-size:14px;color:var(--text-dim);
+    border:1px solid transparent;transition:.2s;
+  }
+  .nav a:hover{color:var(--text);background:var(--night-700);border-color:var(--line);}
+  .nav a.cta{
+    color:#1a1405;background:linear-gradient(135deg,var(--amber),#ffb03a);
+    font-weight:600;border-color:transparent;
+  }
+  .nav a.cta:hover{filter:brightness(1.06);background:linear-gradient(135deg,var(--amber),#ffb03a);}
+
+  /* ---------- 首屏 ---------- */
+  .hero{
+    position:relative;overflow:hidden;
+    border-bottom:1px solid var(--line);
+    background:
+      linear-gradient(180deg, rgba(13,20,40,.2), rgba(7,11,24,.95)),
+      repeating-linear-gradient(90deg, rgba(95,208,232,.05) 0 1px, transparent 1px 64px),
+      repeating-linear-gradient(0deg, rgba(255,200,87,.045) 0 1px, transparent 1px 64px);
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(600px 260px at 78% 30%, rgba(255,200,87,.20), transparent 65%),
+               radial-gradient(520px 240px at 12% 78%, rgba(95,208,232,.18), transparent 65%);
+    pointer-events:none;
+  }
+  .hero-inner{
+    position:relative;max-width:var(--maxw);margin:0 auto;padding:74px 20px 66px;
+    display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;
+  }
+  .tagline{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:13px;letter-spacing:1px;color:var(--amber-soft);
+    border:1px solid rgba(255,200,87,.35);border-radius:999px;
+    padding:5px 14px;background:rgba(255,200,87,.07);
+  }
+  .tagline .dot{width:7px;height:7px;border-radius:50%;background:var(--amber);box-shadow:0 0 10px var(--amber);}
+  h1{
+    font-size:clamp(28px,4vw,46px);
+    line-height:1.25;margin:20px 0 16px;letter-spacing:.5px;
+  }
+  h1 em{
+    font-style:normal;
+    background:linear-gradient(120deg,var(--amber),#ffd98a 45%,var(--cyan));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero p.lead{
+    color:var(--text-dim);font-size:16.5px;margin:0 0 26px;max-width:56ch;
+  }
+  .hero-actions{display:flex;flex-wrap:wrap;gap:12px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:12px 22px;border-radius:999px;font-size:15px;font-weight:600;
+    border:1px solid var(--line);color:var(--text);background:var(--night-700);
+    transition:.2s;cursor:pointer;
+  }
+  .btn:hover{border-color:var(--cyan);color:#fff;transform:translateY(-1px);}
+  .btn.primary{
+    background:linear-gradient(135deg,var(--amber),#ff9f2e);
+    color:#1a1405;border-color:transparent;
+    box-shadow:0 8px 26px rgba(255,170,60,.28);
+  }
+  .btn.primary:hover{filter:brightness(1.05);}
+
+  /* 首屏右侧灯光示意 */
+  .glow-panel{
+    border:1px solid var(--line);border-radius:20px;padding:20px;
+    background:linear-gradient(170deg, rgba(31,44,82,.75), rgba(9,14,30,.9));
+    box-shadow:0 20px 60px rgba(0,0,0,.45);
+  }
+  .glow-panel h2{font-size:14px;color:var(--text-mute);font-weight:500;margin:0 0 14px;letter-spacing:1px;}
+  .glow-grid{
+    display:grid;grid-template-columns:repeat(6,1fr);gap:6px;
+  }
+  .glow-cell{
+    aspect-ratio:1/1;border-radius:5px;background:var(--night-700);
+    animation:pulse 3.6s ease-in-out infinite;
+  }
+  .glow-cell.hi{background:linear-gradient(140deg,#ffd98a,#ff9f2e);box-shadow:0 0 12px rgba(255,180,80,.5);}
+  .glow-cell.mid{background:#c98a2e;opacity:.85;}
+  .glow-cell.low{background:#3b4f86;opacity:.8;}
+  .glow-cell.dim{background:#1b2444;}
+  @keyframes pulse{0%,100%{opacity:.85;}50%{opacity:1;}}
+  .glow-legend{
+    display:flex;justify-content:space-between;margin-top:14px;
+    font-size:12px;color:var(--text-mute);
+  }
+  .glow-legend span{display:inline-flex;align-items:center;gap:6px;}
+  .swatch{width:10px;height:10px;border-radius:3px;display:inline-block;}
+
+  /* ---------- 通用区块 ---------- */
+  section{padding:64px 0;}
+  .sec-head{margin-bottom:34px;max-width:74ch;}
+  .sec-head .kicker{
+    font-size:13px;letter-spacing:2px;color:var(--cyan);text-transform:uppercase;
+  }
+  h2.sec-title{
+    font-size:clamp(22px,2.6vw,30px);margin:10px 0 12px;line-height:1.35;
+  }
+  .sec-head p{color:var(--text-dim);margin:0;font-size:15.5px;}
+
+  .alt{background:linear-gradient(180deg, rgba(13,20,40,.55), rgba(7,11,24,0));border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+
+  /* 卡片网格 */
+  .grid{display:grid;gap:20px;}
+  .grid-3{grid-template-columns:repeat(3,1fr);}
+  .grid-2{grid-template-columns:repeat(2,1fr);}
+  .card{
+    border:1px solid var(--line);border-radius:var(--radius);
+    background:linear-gradient(170deg, rgba(21,31,60,.85), rgba(11,17,35,.9));
+    padding:24px;transition:.22s;
+  }
+  .card:hover{border-color:rgba(95,208,232,.55);transform:translateY(-3px);}
+  .card h3{margin:0 0 10px;font-size:17.5px;}
+  .card p{margin:0;color:var(--text-dim);font-size:14.5px;}
+  .card .num{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:34px;height:34px;border-radius:10px;margin-bottom:14px;
+    background:rgba(255,200,87,.12);color:var(--amber);font-weight:700;font-size:15px;
+    border:1px solid rgba(255,200,87,.3);
+  }
+  .card ul{margin:12px 0 0;padding-left:18px;color:var(--text-dim);font-size:14.5px;}
+  .card ul li{margin-bottom:6px;}
+
+  /* 图集展示 */
+  .atlas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .atlas-item{
+    border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+    background:var(--night-800);transition:.22s;
+  }
+  .atlas-item:hover{border-color:rgba(255,200,87,.5);transform:translateY(-3px);}
+  .atlas-visual{
+    height:132px;position:relative;
+    background:
+      radial-gradient(circle at 30% 65%, rgba(255,210,120,.9) 0 3px, transparent 4px),
+      radial-gradient(circle at 44% 50%, rgba(255,190,90,.75) 0 2px, transparent 3px),
+      radial-gradient(circle at 58% 70%, rgba(255,220,150,.85) 0 4px, transparent 5px),
+      radial-gradient(circle at 70% 42%, rgba(255,180,80,.6) 0 2px, transparent 3px),
+      radial-gradient(circle at 82% 62%, rgba(255,205,120,.7) 0 3px, transparent 4px),
+      radial-gradient(circle at 20% 40%, rgba(120,200,230,.5) 0 2px, transparent 3px),
+      linear-gradient(160deg,#0b1122,#1a2444 60%,#0b1122);
+  }
+  .atlas-visual::after{
+    content:"";position:absolute;inset:0;
+    background:repeating-linear-gradient(0deg, rgba(255,255,255,.03) 0 1px, transparent 1px 18px);
+  }
+  .atlas-meta{padding:15px 16px 18px;}
+  .atlas-meta h3{margin:0 0 6px;font-size:16px;}
+  .atlas-meta p{margin:0;font-size:13.5px;color:var(--text-mute);}
+  .chip{
+    display:inline-block;font-size:12px;padding:2px 9px;border-radius:999px;
+    border:1px solid rgba(95,208,232,.4);color:var(--cyan);margin-bottom:9px;
+  }
+
+  /* 时间线 */
+  .timeline{position:relative;padding-left:30px;}
+  .timeline::before{
+    content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;
+    background:linear-gradient(180deg,var(--amber),rgba(95,208,232,.4),transparent);
+  }
+  .tl-item{position:relative;margin-bottom:26px;}
+  .tl-item::before{
+    content:"";position:absolute;left:-29px;top:7px;width:11px;height:11px;border-radius:50%;
+    background:var(--night-900);border:2px solid var(--amber);box-shadow:0 0 10px rgba(255,200,87,.6);
+  }
+  .tl-item h3{margin:0 0 6px;font-size:16.5px;}
+  .tl-item p{margin:0;color:var(--text-dim);font-size:14.5px;}
+
+  /* 表格 */
+  .table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);}
+  table{width:100%;border-collapse:collapse;min-width:620px;font-size:14.5px;}
+  thead th{
+    background:rgba(31,44,82,.7);text-align:left;padding:13px 16px;
+    font-weight:600;color:var(--amber-soft);border-bottom:1px solid var(--line);white-space:nowrap;
+  }
+  tbody td{padding:13px 16px;border-bottom:1px solid rgba(39,53,94,.6);color:var(--text-dim);}
+  tbody tr:last-child td{border-bottom:none;}
+  tbody tr:hover td{background:rgba(31,44,82,.35);color:var(--text);}
+
+  /* 侧栏 + 正文 */
+  .split{display:grid;grid-template-columns:1.6fr .9fr;gap:36px;align-items:start;}
+  .prose h3{margin:28px 0 10px;font-size:18px;color:var(--amber-soft);}
+  .prose h3:first-child{margin-top:0;}
+  .prose p{margin:0 0 14px;color:var(--text-dim);font-size:15.5px;}
+  .prose ul{margin:0 0 16px;padding-left:20px;color:var(--text-dim);font-size:15.5px;}
+  .prose ul li{margin-bottom:8px;}
+  .aside-box{
+    border:1px solid var(--line);border-radius:var(--radius);
+    background:linear-gradient(170deg, rgba(21,31,60,.8), rgba(11,17,35,.9));
+    padding:22px;margin-bottom:20px;
+  }
+  .aside-box h3{margin:0 0 12px;font-size:16px;}
+  .aside-box p{margin:0 0 10px;font-size:14px;color:var(--text-dim);}
+  .aside-box ul{margin:0;padding-left:18px;font-size:14px;color:var(--text-dim);}
+  .aside-box ul li{margin-bottom:8px;}
+
+  /* FAQ */
+  .faq-item{
+    border:1px solid var(--line);border-radius:var(--radius);
+    background:rgba(13,20,40,.6);margin-bottom:12px;overflow:hidden;
+  }
+  .faq-q{
+    width:100%;text-align:left;background:none;border:none;color:var(--text);
+    font-size:16px;font-weight:600;padding:17px 20px;cursor:pointer;
+    display:flex;justify-content:space-between;gap:16px;align-items:center;
+    font-family:inherit;
+  }
+  .faq-q .ico{
+    flex:0 0 auto;width:22px;height:22px;border-radius:50%;
+    border:1px solid var(--line);display:grid;place-items:center;
+    color:var(--amber);font-size:15px;line-height:1;transition:.25s;
+  }
+  .faq-item.open .faq-q .ico{transform:rotate(45deg);border-color:var(--amber);}
+  .faq-a{
+    max-height:0;overflow:hidden;transition:max-height .3s ease;
+    padding:0 20px;
+  }
+  .faq-a p{margin:0 0 18px;color:var(--text-dim);font-size:14.8px;}
+  .faq-item.open .faq-a{max-height:340px;}
+
+  /* 页脚 */
+  footer{
+    border-top:1px solid var(--line);
+    background:linear-gradient(180deg, rgba(11,17,35,.6), rgba(7,11,24,1));
+    padding:46px 0 30px;
+  }
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px;margin-bottom:32px;}
+  .foot-grid h4{margin:0 0 12px;font-size:15px;color:var(--text);}
+  .foot-grid p,.foot-grid li{color:var(--text-mute);font-size:13.8px;}
+  .foot-grid ul{list-style:none;margin:0;padding:0;}
+  .foot-grid ul li{margin-bottom:8px;}
+  .foot-grid ul li a:hover{color:var(--amber);}
+  .foot-bottom{
+    border-top:1px solid rgba(39,53,94,.6);padding-top:20px;
+    display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+    font-size:13px;color:var(--text-mute);
+  }
+
+  /* 响应式 */
+  @media (max-width:980px){
+    .hero-inner{grid-template-columns:1fr;gap:34px;padding:52px 20px 48px;}
+    .grid-3,.atlas-grid{grid-template-columns:repeat(2,1fr);}
+    .split{grid-template-columns:1fr;gap:28px;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:640px){
+    .topbar-inner{flex-wrap:wrap;gap:12px;}
+    .nav{margin-left:0;width:100%;overflow-x:auto;padding-bottom:2px;}
+    .nav a{white-space:nowrap;}
+    section{padding:46px 0;}
+    .grid-3,.grid-2,.atlas-grid{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr;}
+    .hero-actions .btn{flex:1 1 auto;justify-content:center;}
+    .glow-grid{grid-template-columns:repeat(6,1fr);}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到主要内容</a>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#main" aria-label="夜光图集首页">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>夜光图集<small>CITY NIGHT LIGHTS</small></span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="#intro">图集简介</a>
+      <a href="#atlas">图集内容</a>
+      <a href="#read">数据解读</a>
+      <a href="#how">查看方式</a>
+      <a href="#faq">常见问题</a>
+      <a class="cta" href="#atlas">浏览图集</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- 首屏 -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-inner">
+      <div>
+        <span class="tagline"><span class="dot" aria-hidden="true"></span>城市夜间灯光影像专题</span>
+        <h1 id="hero-title">首部城市夜间灯光图集发布，<em>用灯光读懂城市</em></h1>
+        <p class="lead">
+          “首部城市夜间灯光图集发布”意味着城市夜间灯光影像第一次被系统整理成可浏览、可对照的图集。
+          这份专题页围绕图集的发布背景、收录内容、灯光数据的含义与查看方式展开，
+          帮助你在浏览影像的同时，理解夜间灯光究竟能反映什么、又不能反映什么。
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#atlas">查看图集内容</a>
+          <a class="btn" href="#read">先了解怎么读图</a>
+        </div>
+      </div>
+
+      <aside class="glow-panel" aria-label="夜间灯光强度示意">
+        <h2>灯光强度示意（非真实数据）</h2>
+        <div class="glow-grid" aria-hidden="true">
+          <span class="glow-cell dim"></span><span class="glow-cell low"></span><span class="glow-cell mid"></span><span class="glow-cell hi"></span><span class="glow-cell mid"></span><span class="glow-cell dim"></span>
+          <span class="glow-cell low"></span><span class="glow-cell mid"></span><span class="glow-cell hi"></span><span class="glow-cell hi"></span><span class="glow-cell mid"></span><span class="glow-cell low"></span>
+          <span class="glow-cell dim"></span><span class="glow-cell mid"></span><span class="glow-cell hi"></span><span class="glow-cell mid"></span><span class="glow-cell low"></span><span class="glow-cell dim"></span>
+          <span class="glow-cell low"></span><span class="glow-cell mid"></span><span class="glow-cell hi"></span><span class="glow-cell hi"></span><span class="glow-cell mid"></span><span class="glow-cell low"></span>
+          <span class="glow-cell dim"></span><span class="glow-cell low"></span><span class="glow-cell mid"></span><span class="glow-cell low"></span><span class="glow-cell dim"></span><span class="glow-cell dim"></span>
+        </div>
+        <div class="glow-legend">
+          <span><i class="swatch" style="background:#1b2444"></i>暗区</span>
+          <span><i class="swatch" style="background:#3b4f86"></i>较弱</span>
+          <span><i class="swatch" style="background:#c98a2e"></i>中等</span>
+          <span><i class="swatch" style="background:#ffc857"></i>明亮</span>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 图集简介 -->
+  <section id="intro">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">Overview</span>
+        <h2 class="sec-title">这份图集是什么，为什么值得关注</h2>
+        <p>
+          城市夜间灯光图集，是把同一座城市在夜间被灯光照亮的形态，以影像或可视化方式集中呈现的成果。
+          它不同于普通夜景摄影，更强调可比性、系统性与可读性——同一套标准下看多座城市，才谈得上“图集”。
+        </p>
+      </div>
+
+      <div class="grid grid-3">
+        <article class="card">
+          <span class="num">01</span>
+          <h3>从单张照片到成体系</h3>
+          <p>以往夜间灯光影像多散落在研究论文、卫星影像平台或新闻配图中，普通人很难按城市成组查看。图集的意义在于把零散影像整理为可连续浏览的整体。</p>
+        </article>
+        <article class="card">
+          <span class="num">02</span>
+          <h3>关注的是“形态”而非“美图”</h3>
+          <p>灯光图集更在意灯光的分布范围、密度差异与边界形状，而不是画面是否好看。它服务于观察与比较，而不是单纯的视觉欣赏。</p>
+        </article>
+        <article class="card">
+          <span class="num">03</span>
+          <h3>降低理解门槛</h3>
+          <p>通过统一配色、统一比例与必要的文字说明，图集让没有遥感背景的读者也能大致看懂城市灯光格局。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 图集内容 -->
+  <section id="atlas" class="alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">Atlas</span>
+        <h2 class="sec-title">图集通常收录哪些内容</h2>
+        <p>
+          不同机构发布的图集在收录范围上会有差异。以下按常见的内容组织方式说明，
+          具体收录城市数量、年份跨度与影像来源，请以图集发布方的正式说明为准。
+        </p>
+      </div>
+
+      <div class="atlas-grid">
+        <article class="atlas-item">
+          <div class="atlas-visual" role="img" aria-label="城市核心区灯光示意"></div>
+          <div class="atlas-meta">
+            <span class="chip">核心区</span>
+            <h3>城市中心灯光分布</h3>
+            <p>呈现主城区灯光的集中程度与向外扩散的形态，便于观察城市建成区的大致轮廓。</p>
+          </div>
+        </article>
+        <article class="atlas-item">
+          <div class="atlas-visual" role="img" aria-label="城市外围与交通廊道灯光示意"></div>
+          <div class="atlas-meta">
+            <span class="chip">廊道</span>
+            <h3>交通干线与外围组团</h3>
+            <p>沿主要道路、产业园区、新城组团形成的带状或点状灯光，常被用来观察城市空间的连接关系。</p>
+          </div>
+        </article>
+        <article class="atlas-item">
+          <div class="atlas-visual" role="img" aria-label="多城市灯光对照示意"></div>
+          <div class="atlas-meta">
+            <span class="chip">对照</span>
+            <h3>多城市横向对照</h3>
+            <p>在统一尺度下并列展示不同城市，帮助读者直观感受城市规模与灯光格局的差异。</p>
+          </div>
+        </article>
+        <article class="atlas-item">
+          <div class="atlas-visual" role="img" aria-label="不同时期灯光变化示意"></div>
+          <div class="atlas-meta">
+            <span class="chip">时序</span>
+            <h3>不同时期的灯光变化</h3>
+            <p>若图集包含多个年份，可用于观察灯光范围与强度的变化趋势，但解读时需注意数据可比性。</p>
+          </div>
+        </article>
+        <article class="atlas-item">
+          <div class="atlas-visual" role="img" aria-label="灯光与地理要素叠加示意"></div>
+          <div class="atlas-meta">
+            <span class="chip">叠加</span>
+            <h3>灯光与地理要素叠加</h3>
+            <p>叠加河流、海岸线、行政区划等要素，有助于理解灯光形态受自然条件与行政边界的影响。</p>
+          </div>
+        </article>
+        <article class="atlas-item">
+          <div class="atlas-visual" role="img" aria-label="图集说明与图例示意"></div>
+          <div class="atlas-meta">
+            <span class="chip">说明</span>
+            <h3>图例、来源与使用说明</h3>
+            <p>一份规范的图集应附带数据来源、时间范围、处理方式与使用限制，这些信息比图像本身更值得先看。</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 数据解读 -->
+  <section id="read">
+    <div class="wrap">
+      <div class="split">
+        <div class="prose">
+          <h2 class="sec-title" style="margin-top:0">夜间灯光能说明什么，不能说明什么</h2>
+          <p>
+            夜间灯光是一种被广泛使用的空间观察视角。它的直观性很强，但也正因为直观，容易被过度解读。
+            在浏览“首部城市夜间灯光图集”这类内容时，先建立正确的理解框架，比记住某张图长什么样更重要。
+          </p>
+
+          <h3>灯光亮度通常与什么有关</h3>
+          <ul>
+            <li><strong>人类活动密度：</strong>居住、商业、工业等活动集中的区域，通常灯光更密集。</li>
+            <li><strong>照明设施水平：</strong>道路照明、建筑外立面照明、公共空间照明的覆盖程度会直接影响亮度表现。</li>
+            <li><strong>产业与用地类型：</strong>部分工业区、港口、大型场站夜间照明强度较高，但其人口密度未必高。</li>
+            <li><strong>自然与气候条件：</strong>云量、雾霾、地表反射等会干扰影像质量，影响同一地点的可比性。</li>
+            <li><strong>成像与处理方式：</strong>不同传感器、不同时间、不同增强算法得到的图像，亮度不能直接横向比较。</li>
+          </ul>
+
+          <h3>容易被误读的几种情况</h3>
+          <p>
+            灯光亮不等于经济发达，灯光暗也不等于发展滞后。城市之间的产业结构、地形条件、照明习惯差异很大，
+            单凭一张灯光图下结论并不严谨。此外，图集为了视觉效果常会做亮度增强，
+            这种增强后的图像更适合观察形态，而不适合用来比较绝对强弱。
+          </p>
+
+          <h3>更稳妥的读图顺序</h3>
+          <p>
+            建议先看图例与说明，确认影像来源与时间；再看整体轮廓，理解城市建成区的大致范围；
+            最后再关注局部差异，如沿江、沿海、沿交通干线的灯光带。把“先整体、后局部”的顺序固定下来，
+            能显著减少误读。
+          </p>
+        </div>
+
+        <aside>
+          <div class="aside-box">
+            <h3>读图前先确认三件事</h3>
+            <ul>
+              <li>影像的获取时间是什么时候</li>
+              <li>是否经过亮度增强或色彩处理</li>
+              <li>图例中的颜色分别代表什么区间</li>
+            </ul>
+          </div>
+          <div class="aside-box">
+            <h3>适合的使用场景</h3>
+            <p>城市形态观察、地理与城市规划科普、教学演示、城市形象传播、跨城市空间格局对比等。</p>
+          </div>
+          <div class="aside-box">
+            <h3>不建议的使用场景</h3>
+            <p>不宜直接用于经济总量比较、人口精确统计、区域发展水平排名等需要严格统计口径的场景。</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- 查看方式 -->
+  <section id="how" class="alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">How to view</span>
+        <h2 class="sec-title">如何查看与使用这份图集</h2>
+        <p>图集的呈现形式会影响阅读体验。下面按常见的几种使用方式给出建议，方便你按需要选择。</p>
+      </div>
+
+      <div class="timeline">
+        <div class="tl-item">
+          <h3>在网页端整体浏览</h3>
+          <p>适合第一次接触图集的读者。先按城市顺序通览一遍，建立对整体收录范围的印象，再回到感兴趣的城市细看。</p>
+        </div>
+        <div class="tl-item">
+          <h3>按城市或区域定向查看</h3>
+          <p>如果你只关心特定城市，可直接定位到对应页面。注意同一城市若有多个年份，应优先选择时间接近的影像进行对照。</p>
+        </div>
+        <div class="tl-item">
+          <h3>用于教学或科普展示</h3>
+          <p>建议配合文字说明一起使用，并明确告知受众图像经过处理，避免把示意图当作精确数据。</p>
+        </div>
+        <div class="tl-item">
+          <h3>用于写作或内容创作</h3>
+          <p>引用时应标注图集来源与影像时间，不擅自裁剪掉图例和说明信息，避免造成断章取义的解读。</p>
+        </div>
+        <div class="tl-item">
+          <h3>需要更严谨分析时</h3>
+          <p>图集适合作为入门与展示材料。若用于研究或报告，应回到原始遥感数据与官方统计口径，图集只能作为辅助参考。</p>
+        </div>
+      </div>
+
+      <div class="table-scroll" style="margin-top:34px">
+        <table>
+          <caption class="skip">图集常见内容类型与使用建议对照表</caption>
+          <thead>
+            <tr>
+              <th scope="col">内容类型</th>
+              <th scope="col">主要观察点</th>
+              <th scope="col">使用建议</th>
+              <th scope="col">注意事项</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>单城市灯光图</td>
+              <td>建成区轮廓、灯光集中区</td>
+              <td>城市形态科普、形象展示</td>
+              <td>注意是否经过亮度增强</td>
+            </tr>
+            <tr>
+              <td>多城市对照图</td>
+              <td>灯光范围与形态差异</td>
+              <td>横向比较空间格局</td>
+              <td>需确认比例尺是否统一</td>
+            </tr>
+            <tr>
+              <td>多时相对比图</td>
+              <td>灯光范围的变化趋势</td>
+              <td>观察城市扩展方向</td>
+              <td>不同年份传感器可能不同</td>
+            </tr>
+            <tr>
+              <td>叠加地理要素图</td>
+              <td>灯光与地形、水系关系</td>
+              <td>解释灯光形态成因</td>
+              <td>叠加层来源需注明</td>
+            </tr>
+            <tr>
+              <td>图例与说明页</td>
+              <td>数据口径与处理方式</td>
+              <td>阅读前必看</td>
+              <td>缺失说明时谨慎引用</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">FAQ</span>
+        <h2 class="sec-title">关于城市夜间灯光图集的常见问题</h2>
+        <p>以下问题围绕图集本身的理解与使用展开，不涉及具体机构的发布安排。</p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" type="button">夜间灯光图集和普通夜景照片有什么区别？<span class="ico" aria-hidden="true">+</span></button>
+          <div class="faq-a"><p>夜景照片以审美为目的，拍摄角度、曝光参数各不相同；图集则强调统一标准、可比性和说明信息，更接近一种可视化资料。两者的用途和阅读方式并不相同。</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">灯光越亮的城市就越发达吗？<span class="ico" aria-hidden="true">+</span></button>
+          <div class="faq-a"><p>不能这样简单对应。灯光强度受照明设施、产业结构、地形和气候等多种因素影响。灯光可以作为观察城市空间形态的辅助视角，但不足以单独支撑发展水平的判断。</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">为什么不同图集里同一座城市看起来差别很大？<span class="ico" aria-hidden="true">+</span></button>
+          <div class="faq-a"><p>常见原因包括影像获取时间不同、传感器不同、云层与大气条件不同，以及后期处理中的亮度增强方式不同。比较时最好使用同一来源、同一时期的影像。</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">图集里的颜色代表什么？<span class="ico" aria-hidden="true">+</span></button>
+          <div class="faq-a"><p>颜色通常用来区分灯光强度的区间或不同类型的灯光，具体含义以图例为准。不同图集的配色方案可能完全不同，不能凭经验套用。</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">可以把图集内容用于教学或公开分享吗？<span class="ico" aria-hidden="true">+</span></button>
+          <div class="faq-a"><p>这取决于图集发布方声明的使用条款。用于教学、科普等非商业场景时，一般应保留来源标注与图例说明；商业用途需先确认授权情况。</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">想进一步了解夜间灯光，应该从哪里入手？<span class="ico" aria-hidden="true">+</span></button>
+          <div class="faq-a"><p>可以先从城市地理、遥感基础概念和城市规划入门读物入手，理解建成区、土地利用等基本概念，再回头看灯光影像，会更容易读懂其中的空间信息。</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>关于本专题</h4>
+        <p>本页面围绕“首部城市夜间灯光图集发布”这一主题，整理图集的内容构成、灯光数据的解读方法与使用建议，供浏览与学习参考。</p>
+      </div>
+      <div>
+        <h4>快速导航</h4>
+        <ul>
+          <li><a href="#intro">图集简介</a></li>
+          <li><a href="#atlas">图集内容</a></li>
+          <li><a href="#read">数据解读</a></li>
+          <li><a href="#how">查看方式</a></li>
+          <li><a href="#faq">常见问题</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>阅读提示</h4>
+        <ul>
+          <li>示意图仅用于说明，不代表真实数据</li>
+          <li>具体收录范围以发布方说明为准</li>
+          <li>引用影像时请标注来源与时间</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>城市夜间灯光图集专题 · 内容仅供学习与参考</span>
+      <span>图片为示意排版，不代表实际影像</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var items = document.querySelectorAll('.faq-item');
+    items.forEach(function(item){
+      var btn = item.querySelector('.faq-q');
+      btn.addEventListener('click', function(){
+        var isOpen = item.classList.contains('open');
+        items.forEach(function(other){ other.classList.remove('open'); });
+        if(!isOpen){ item.classList.add('open'); }
+      });
+    });
+  })();
+</script>
+</body>
+  </html>
