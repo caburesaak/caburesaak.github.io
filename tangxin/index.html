@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>溏心风暴主题曲-剧集歌曲回顾与收听指引</title>
+<meta name="description" content="围绕溏心风暴主题曲，整理剧集歌曲的用途、常见收听与查找方式、片头片尾曲与插曲的区别，以及在不同平台寻找原声资源的实用建议。">
+<meta name="keywords" content="溏心风暴主题曲,溏心风暴歌曲,TVB主题曲,剧集原声,片尾曲,插曲">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+  :root{
+    --ink:#1d1b18;
+    --ink-soft:#4a463f;
+    --paper:#f6f1e7;
+    --paper-2:#fffaf1;
+    --line:#e2d8c6;
+    --gold:#b8873b;
+    --gold-deep:#8c6222;
+    --wine:#7b2b2b;
+    --shadow:0 10px 30px rgba(60,45,20,.10);
+    --radius:14px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif;
+    color:var(--ink);
+    background:
+      radial-gradient(1200px 500px at 80% -10%, #fdf6e6 0%, rgba(253,246,230,0) 60%),
+      var(--paper);
+    line-height:1.75;
+    font-size:16px;
+  }
+  a{color:var(--gold-deep);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  img{max-width:100%;}
+  .wrap{width:min(1120px,92vw);margin:0 auto;}
+
+  /* 顶栏 */
+  .topbar{
+    background:linear-gradient(90deg,#2a2118,#3d2f1f 55%,#5a4227);
+    color:#f2e6cf;
+    font-size:13.5px;
+    letter-spacing:.3px;
+  }
+  .topbar .wrap{
+    display:flex;justify-content:space-between;align-items:center;gap:14px;
+    padding:9px 0;flex-wrap:wrap;
+  }
+  .topbar span{opacity:.85;}
+
+  /* 页眉 */
+  header.site{
+    background:var(--paper-2);
+    border-bottom:1px solid var(--line);
+    position:sticky;top:0;z-index:40;
+    box-shadow:0 2px 12px rgba(80,60,30,.05);
+  }
+  .head-inner{
+    display:flex;align-items:center;justify-content:space-between;gap:20px;
+    padding:14px 0;flex-wrap:wrap;
+  }
+  .brand{display:flex;align-items:center;gap:12px;}
+  .brand .mark{
+    width:46px;height:46px;border-radius:12px;
+    background:linear-gradient(145deg,var(--wine),#a8402f);
+    color:#ffeccd;display:grid;place-items:center;
+    font-weight:700;font-size:20px;letter-spacing:1px;
+    box-shadow:var(--shadow);
+  }
+  .brand h1{
+    font-size:20px;margin:0;line-height:1.3;letter-spacing:.5px;
+  }
+  .brand p{margin:2px 0 0;font-size:12.5px;color:var(--ink-soft);letter-spacing:.4px;}
+
+  nav.main ul{
+    list-style:none;display:flex;gap:6px;margin:0;padding:0;flex-wrap:wrap;
+  }
+  nav.main a{
+    display:block;padding:8px 14px;border-radius:999px;
+    color:var(--ink-soft);font-size:14.5px;transition:.2s;
+  }
+  nav.main a:hover,nav.main a.active{
+    background:#f0e4cd;color:var(--wine);text-decoration:none;
+  }
+
+  /* 首屏 */
+  .hero{
+    padding:52px 0 44px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;
+  }
+  .hero .eyebrow{
+    display:inline-block;font-size:13px;letter-spacing:2px;color:var(--gold-deep);
+    border:1px solid #e0cfa9;background:#fdf6e6;border-radius:999px;
+    padding:5px 14px;margin-bottom:18px;
+  }
+  .hero h2{
+    font-size:clamp(26px,3.4vw,38px);
+    line-height:1.35;margin:0 0 16px;letter-spacing:.5px;
+  }
+  .hero h2 em{font-style:normal;color:var(--wine);}
+  .hero p.lead{
+    color:var(--ink-soft);font-size:16.5px;margin:0 0 24px;max-width:56ch;
+  }
+  .btn-row{display:flex;gap:12px;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;padding:11px 22px;border-radius:999px;font-size:15px;
+    transition:.2s;border:1px solid transparent;
+  }
+  .btn.primary{
+    background:linear-gradient(145deg,#8c3226,#6d221b);color:#ffeeda;
+    box-shadow:0 8px 20px rgba(120,40,30,.25);
+  }
+  .btn.primary:hover{text-decoration:none;transform:translateY(-1px);}
+  .btn.ghost{
+    border-color:#d9c9a6;color:var(--gold-deep);background:#fffdf7;
+  }
+  .btn.ghost:hover{text-decoration:none;background:#f7edd9;}
+
+  .hero-card{
+    background:var(--paper-2);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:24px;
+    box-shadow:var(--shadow);
+  }
+  .hero-card h3{
+    margin:0 0 14px;font-size:16px;letter-spacing:.5px;color:var(--wine);
+  }
+  .hero-card ul{margin:0;padding-left:18px;color:var(--ink-soft);font-size:14.5px;}
+  .hero-card li{margin-bottom:9px;}
+  .hero-card li:last-child{margin-bottom:0;}
+
+  /* 通用区块 */
+  section.block{padding:52px 0;}
+  .sec-head{
+    display:flex;align-items:flex-end;justify-content:space-between;gap:16px;
+    margin-bottom:26px;flex-wrap:wrap;
+  }
+  .sec-head h2{
+    font-size:23px;margin:0;letter-spacing:.6px;position:relative;padding-left:14px;
+  }
+  .sec-head h2::before{
+    content:"";position:absolute;left:0;top:6px;bottom:6px;width:4px;
+    border-radius:4px;background:linear-gradient(180deg,var(--gold),var(--wine));
+  }
+  .sec-head p{margin:0;color:var(--ink-soft);font-size:14.5px;max-width:60ch;}
+
+  /* 歌曲列表 */
+  .song-list{display:grid;gap:14px;}
+  .song{
+    display:grid;grid-template-columns:64px 1fr auto;gap:18px;align-items:center;
+    background:var(--paper-2);border:1px solid var(--line);border-radius:var(--radius);
+    padding:18px 22px;transition:.22s;
+  }
+  .song:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:#dcc79c;}
+  .song .idx{
+    width:52px;height:52px;border-radius:12px;display:grid;place-items:center;
+    background:#f4ead6;color:var(--gold-deep);font-weight:700;font-size:17px;
+  }
+  .song h3{margin:0 0 6px;font-size:17px;}
+  .song p{margin:0;color:var(--ink-soft);font-size:14.5px;}
+  .song .tag{
+    font-size:12.5px;color:var(--wine);background:#f8e9e4;border:1px solid #eed3cb;
+    border-radius:999px;padding:5px 13px;white-space:nowrap;
+  }
+
+  /* 卡片网格 */
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+  .card{
+    background:var(--paper-2);border:1px solid var(--line);border-radius:var(--radius);
+    padding:24px;transition:.22s;
+  }
+  .card:hover{box-shadow:var(--shadow);transform:translateY(-2px);}
+  .card h3{margin:0 0 10px;font-size:17px;color:var(--wine);}
+  .card p{margin:0;color:var(--ink-soft);font-size:14.5px;}
+  .card .num{
+    display:inline-block;font-size:13px;color:var(--gold-deep);
+    letter-spacing:1px;margin-bottom:10px;
+  }
+
+  /* 指南时间线 */
+  .steps{display:grid;gap:16px;}
+  .step{
+    display:grid;grid-template-columns:auto 1fr;gap:18px;
+    background:#fffdf7;border:1px dashed #ddcda9;border-radius:var(--radius);
+    padding:20px 22px;
+  }
+  .step .dot{
+    width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
+    background:var(--gold);color:#fff;font-weight:700;font-size:15px;
+  }
+  .step h3{margin:0 0 8px;font-size:16.5px;}
+  .step p{margin:0;color:var(--ink-soft);font-size:14.5px;}
+
+  /* 侧栏 + 主体 */
+  .split{display:grid;grid-template-columns:1fr 320px;gap:34px;align-items:start;}
+  aside.side{
+    background:var(--paper-2);border:1px solid var(--line);border-radius:var(--radius);
+    padding:24px;box-shadow:var(--shadow);
+  }
+  aside.side h3{
+    margin:0 0 14px;font-size:16px;color:var(--wine);letter-spacing:.5px;
+  }
+  aside.side ul{margin:0 0 22px;padding:0;list-style:none;}
+  aside.side li{
+    padding:9px 0;border-bottom:1px solid #f0e7d6;font-size:14.5px;color:var(--ink-soft);
+  }
+  aside.side li:last-child{border-bottom:none;}
+  aside.side .note{
+    font-size:13.5px;color:#7a7266;background:#f7f0e2;border-radius:10px;
+    padding:14px;line-height:1.7;
+  }
+
+  /* FAQ */
+  .faq{display:grid;gap:12px;}
+  details{
+    background:var(--paper-2);border:1px solid var(--line);border-radius:12px;
+    padding:16px 20px;
+  }
+  details[open]{border-color:#dcc79c;box-shadow:var(--shadow);}
+  summary{
+    cursor:pointer;font-weight:600;font-size:15.5px;list-style:none;
+    display:flex;justify-content:space-between;gap:14px;align-items:center;
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary::after{content:"＋";color:var(--gold-deep);font-weight:700;}
+  details[open] summary::after{content:"－";}
+  details p{margin:12px 0 0;color:var(--ink-soft);font-size:14.5px;}
+
+  /* 页脚 */
+  footer.site{
+    background:linear-gradient(180deg,#2a2118,#1e1811);
+    color:#cdbfa6;margin-top:20px;padding:44px 0 26px;font-size:14px;
+  }
+  .foot-grid{
+    display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px;
+  }
+  footer.site h4{
+    color:#f0e2c6;font-size:15px;margin:0 0 14px;letter-spacing:.6px;
+  }
+  footer.site ul{list-style:none;margin:0;padding:0;}
+  footer.site li{margin-bottom:9px;}
+  footer.site a{color:#cdbfa6;}
+  footer.site a:hover{color:#f5e6c8;}
+  .foot-bottom{
+    border-top:1px solid rgba(240,226,198,.14);margin-top:32px;padding-top:18px;
+    display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+    font-size:13px;color:#9c8f7a;
+  }
+
+  /* 响应式 */
+  @media (max-width:960px){
+    .hero-grid{grid-template-columns:1fr;}
+    .grid-3{grid-template-columns:repeat(2,1fr);}
+    .split{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:640px){
+    body{font-size:15.5px;}
+    .head-inner{padding:12px 0;}
+    nav.main ul{gap:2px;}
+    nav.main a{padding:7px 11px;font-size:14px;}
+    .hero{padding:36px 0 30px;}
+    section.block{padding:38px 0;}
+    .grid-3,.grid-2{grid-template-columns:1fr;}
+    .song{grid-template-columns:48px 1fr;gap:14px;padding:16px;}
+    .song .tag{grid-column:2;justify-self:start;}
+    .song .idx{width:44px;height:44px;font-size:15px;}
+    .foot-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <span>剧集音乐资料整理 · 港剧原声回顾</span>
+    <span>内容以公开可查的剧集资料为基础，仅供查找与参考</span>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap head-inner">
+    <div class="brand">
+      <div class="mark">溏</div>
+      <div>
+        <h1>溏心风暴主题曲资料站</h1>
+        <p>剧集歌曲 · 片头片尾 · 收听与查找指引</p>
+      </div>
+    </div>
+    <nav class="main">
+      <ul>
+        <li><a class="active" href="#songs">歌曲概览</a></li>
+        <li><a href="#types">曲目类型</a></li>
+        <li><a href="#guide">查找方法</a></li>
+        <li><a href="#tips">收听建议</a></li>
+        <li><a href="#faq">常见问题</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- 首屏 -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">剧集原声 · 主题曲</span>
+        <h2>想找《溏心风暴》的<em>主题曲</em>，先弄清楚它到底指哪一首</h2>
+        <p class="lead">
+          《溏心风暴》是香港电视广播有限公司（TVB）制作的家族商战题材剧集系列，播出跨度较长，
+          包含多部续作。由于系列分季、分辑播出，观众口中的“溏心风暴主题曲”可能指向不同一辑的片头曲，
+          也可能泛指全系列中印象最深的片头、片尾或插曲。本页把这几类情况分开说明，
+          帮助你在搜索、收听和辨认时少走弯路。
+        </p>
+        <div class="btn-row">
+          <a class="btn primary" href="#songs">查看歌曲概览</a>
+          <a class="btn ghost" href="#guide">查找收听方法</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h3>快速判断你要找的是哪一首</h3>
+        <ul>
+          <li>先确认是第几辑：不同辑数片头曲通常不同。</li>
+          <li>回忆旋律出现在片头还是片尾，两者用途不同。</li>
+          <li>留意演唱者，港剧主题曲常由剧中演员或歌手演唱。</li>
+          <li>若只记得剧情画面，可先搜剧集名再加“片头曲”限定。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 歌曲概览 -->
+  <section class="block" id="songs">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>歌曲概览：按用途分类整理</h2>
+        <p>下表按歌曲在剧集中的功能分类，方便你按记忆中的位置快速定位，而不是只凭模糊印象漫无目的地搜索。</p>
+      </div>
+
+      <div class="song-list">
+        <article class="song">
+          <div class="idx">01</div>
+          <div>
+            <h3>片头主题曲</h3>
+            <p>每集开场播放，通常配合剧集主视觉与角色群像。观众印象最深、最常被称作“主题曲”的一般就是这一首。</p>
+          </div>
+          <span class="tag">片头曲</span>
+        </article>
+
+        <article class="song">
+          <div class="idx">02</div>
+          <div>
+            <h3>片尾曲</h3>
+            <p>在每集结尾或片尾字幕阶段播放，情绪上多与剧情收束相呼应。部分辑数会与片头曲使用同一首的不同段落。</p>
+          </div>
+          <span class="tag">片尾曲</span>
+        </article>
+
+        <article class="song">
+          <div class="idx">03</div>
+          <div>
+            <h3>插曲与配乐</h3>
+            <p>出现在关键剧情段落，用于烘托人物关系与情绪转折。这类音乐不一定有完整歌词，辨认难度相对更高。</p>
+          </div>
+          <span class="tag">插曲</span>
+        </article>
+
+        <article class="song">
+          <div class="idx">04</div>
+          <div>
+            <h3>系列相关宣传曲</h3>
+            <p>部分剧集在宣传期会推出配合推广使用的歌曲或版本，与正片片头曲不完全相同，容易被混为一谈。</p>
+          </div>
+          <span class="tag">宣传曲</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 曲目类型说明 -->
+  <section class="block" id="types" style="background:#fdf8ee;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>为什么“主题曲”会有多种答案</h2>
+        <p>这不是资料混乱，而是剧集本身的播出结构与观众记忆方式共同造成的。</p>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <span class="num">原因一</span>
+          <h3>系列分为多辑</h3>
+          <p>《溏心风暴》系列包含多部作品，各辑播出年份不同，片头曲通常也各自独立。只说“溏心风暴主题曲”而不带辑数，搜索结果自然会出现多个候选。</p>
+        </div>
+        <div class="card">
+          <span class="num">原因二</span>
+          <h3>片头与片尾常被混淆</h3>
+          <p>不少观众记得旋律却记不清位置。片头曲重复次数多、曝光高，片尾曲则更容易与剧情情绪绑定，两者被统称为“主题曲”很常见。</p>
+        </div>
+        <div class="card">
+          <span class="num">原因三</span>
+          <h3>翻唱与片段版本多</h3>
+          <p>网络上流传的版本可能包括电视剪辑版、纯音乐版、翻唱版等。同一首歌的不同版本听感差异明显，也会让人误以为是不同歌曲。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 查找方法 -->
+  <section class="block" id="guide">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>查找与确认主题曲的实用步骤</h2>
+        <p>按顺序执行，通常能在较短时间内把模糊印象缩小到具体一首歌。</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="dot">1</div>
+          <div>
+            <h3>先锁定剧集辑数</h3>
+            <p>回忆或查证你印象中的剧情、角色与播出年份，确定属于哪一辑。辑数确定后，片头曲的范围会大幅缩小。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="dot">2</div>
+          <div>
+            <h3>用“剧名＋片头曲／片尾曲”组合搜索</h3>
+            <p>相比只搜“主题曲”，加上用途限定词能更快命中对应条目，也便于区分同一辑中的不同曲目。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="dot">3</div>
+          <div>
+            <h3>核对演唱者与歌词首句</h3>
+            <p>演唱者信息与歌词开头往往是区分不同版本最直接的两个线索，找到后可再反向确认是否为你要找的那一首。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="dot">4</div>
+          <div>
+            <h3>在正规音乐平台试听比对</h3>
+            <p>用歌名或演唱者在正规平台检索，试听前奏与副歌段落，与记忆中的旋律比对，避免被二次剪辑版本误导。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 主体 + 侧栏 -->
+  <section class="block" id="tips">
+    <div class="wrap split">
+      <div>
+        <div class="sec-head">
+          <h2>收听与使用建议</h2>
+          <p>围绕剧集歌曲，下面几点能帮你更顺畅地找到并保存想听的内容。</p>
+        </div>
+        <div class="grid-2">
+          <div class="card">
+            <h3>优先选择正规音乐平台</h3>
+            <p>正规平台的曲目信息相对完整，通常标注演唱者、所属专辑与发行信息，便于核对版本，也能获得更稳定的播放体验。</p>
+          </div>
+          <div class="card">
+            <h3>注意区分“剧集版”与“完整版”</h3>
+            <p>电视播出的片头曲往往经过剪辑，时长较短。音乐平台上的完整版会包含更多段落，听感与记忆中的版本可能不同。</p>
+          </div>
+          <div class="card">
+            <h3>建立自己的曲目清单</h3>
+            <p>如果系列中多首歌曲都喜欢，可以按辑数整理成清单，标注用途与演唱者，日后回顾时不必重新搜索。</p>
+          </div>
+          <div class="card">
+            <h3>尊重版权与使用范围</h3>
+            <p>剧集歌曲的著作权通常涉及多方权利主体。个人收听之外，若用于公开传播、二次创作或商业用途，应事先了解相关授权要求。</p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="side">
+        <h3>搜索关键词参考</h3>
+        <ul>
+          <li>溏心风暴 片头曲</li>
+          <li>溏心风暴 片尾曲</li>
+          <li>溏心风暴 插曲 歌名</li>
+          <li>溏心风暴 主题曲 演唱者</li>
+          <li>溏心风暴 原声 专辑</li>
+        </ul>
+        <h3>辨认小提示</h3>
+        <ul>
+          <li>记住副歌第一句，最有效</li>
+          <li>留意前奏乐器的音色</li>
+          <li>区分男声、女声或合唱</li>
+          <li>注意是否有对白混入</li>
+        </ul>
+        <div class="note">
+          剧集歌曲的曲名、演唱者与发行信息可能因平台收录情况而略有差异。若发现信息不一致，
+          建议以剧集片尾字幕与正规音乐平台的标注相互核对。
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="block" id="faq" style="background:#fdf8ee;border-top:1px solid var(--line);">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>常见问题</h2>
+        <p>关于《溏心风暴》主题曲，搜索时最常遇到的几类疑问。</p>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>《溏心风暴》主题曲只有一首吗？</summary>
+          <p>不是。由于该系列包含多辑作品，各辑的片头曲通常各自独立，因此“主题曲”在实际语境中可能指向不同歌曲。确认辑数后再查找，答案会更明确。</p>
+        </details>
+        <details>
+          <summary>只记得旋律，怎么找到歌名？</summary>
+          <p>可以先确定剧集辑数，再用“剧名＋片头曲”或“剧名＋片尾曲”检索，逐首试听比对前奏与副歌。若记得歌词片段，用歌词关键词搜索往往更直接。</p>
+        </details>
+        <details>
+          <summary>为什么不同平台显示的曲目信息不一样？</summary>
+          <p>各平台对剧集歌曲的收录方式不同，有的按专辑归类，有的按单曲收录，标注的演唱者或版本名称也可能有出入。以剧集片尾字幕为参照，再结合平台信息交叉核对，通常更可靠。</p>
+        </details>
+        <details>
+          <summary>片头曲和片尾曲是同一首歌吗？</summary>
+          <p>视具体辑数而定。有些剧集片头与片尾使用同一首歌的不同段落，有些则使用完全不同的两首歌曲。需要通过实际试听来确认。</p>
+        </details>
+        <details>
+          <summary>可以把主题曲用于视频剪辑吗？</summary>
+          <p>剧集歌曲涉及著作权，公开传播或商业用途通常需要获得相应授权。个人私下欣赏一般不受影响，但发布到公开平台前建议先了解相关使用规则。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>关于本站</h4>
+        <p style="margin:0;line-height:1.8;">
+          本站为《溏心风暴》系列剧集歌曲的资料整理页面，围绕主题曲、片头曲、片尾曲与插曲的查找方法展开，
+          内容以公开可查的剧集资料为基础，供观众回顾与检索时参考。
+        </p>
+      </div>
+      <div>
+        <h4>内容导航</h4>
+        <ul>
+          <li><a href="#songs">歌曲概览</a></li>
+          <li><a href="#types">曲目类型说明</a></li>
+          <li><a href="#guide">查找与确认步骤</a></li>
+          <li><a href="#tips">收听与使用建议</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>相关主题</h4>
+        <ul>
+          <li><a href="#songs">片头曲与片尾曲</a></li>
+          <li><a href="#songs">剧集插曲</a></li>
+          <li><a href="#faq">常见问题</a></li>
+          <li><a href="#tips">版权与使用范围</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>剧集歌曲资料整理 · 内容仅供查找参考</span>
+      <span>曲目信息请以剧集片尾字幕与正规音乐平台标注为准</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // 导航高亮：滚动时同步当前区块
+  (function () {
+    var links = Array.prototype.slice.call(document.querySelectorAll('nav.main a[href^="#"]'));
+    var targets = links.map(function (a) {
+      return document.querySelector(a.getAttribute('href'));
+    });
+    function sync() {
+      var pos = window.scrollY + 140;
+      var current = 0;
+      targets.forEach(function (t, i) {
+        if (t && t.offsetTop <= pos) current = i;
+      });
+      links.forEach(function (a, i) {
+        a.classList.toggle('active', i === current);
+      });
+    }
+    var ticking = false;
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        window.requestAnimationFrame(function () {
+          sync();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+    sync();
+  })();
+</script>
+
+</body>
+  </html>
